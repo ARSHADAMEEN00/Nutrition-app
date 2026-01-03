@@ -1,0 +1,28 @@
+{
+  "name": "nutri-ai",
+  "version": "1.0.0",
+  "description": "Kerala Smart Nutrition Platform - AI-Enhanced Personalized Nutrition App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix app\" \"npm run dev --prefix server\"",
+    "build": "npm run build --prefix app && npm run build --prefix server",
+    "install:all": "npm install && npm install --prefix app && npm install --prefix server",
+    "clean": "rm -rf node_modules app/node_modules server/node_modules app/dist server/dist"
+  },
+  "keywords": [
+    "nutrition",
+    "ai",
+    "kerala",
+    "meal-planning",
+    "diet-recommendation"
+  ],
+  "author": "NutriAI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "app",
+    "server"
+  ]
+}
