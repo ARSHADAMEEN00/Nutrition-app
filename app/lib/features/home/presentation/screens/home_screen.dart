@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../diet_setup/presentation/screens/intro_screen.dart';
-import '../widgets/smart_diet_card.dart';
+import '../../../profile/presentation/screens/profile_screen.dart';
+import '../widgets/diet_plan_result_card.dart';
 import '../widgets/nutrition_summary_chart.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,27 +41,28 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  CircleAvatar(
-                    backgroundColor: AppColors.inputBackground,
-                    radius: 22,
-                    child: Icon(Icons.person, color: AppColors.textPrimary),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfileScreen(),
+                        ),
+                      );
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: AppColors.inputBackground,
+                      radius: 22,
+                      child: Icon(Icons.person, color: AppColors.textPrimary),
+                    ),
                   ),
                 ],
               ),
 
               const SizedBox(height: 32),
 
-              // Smart Diet Card
-              SmartDietCard(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const IntroScreen(),
-                    ),
-                  );
-                },
-              ),
+              // Diet Plan Result Card (shown after plan creation)
+              const DietPlanResultCard(),
 
               const SizedBox(height: 24),
 
