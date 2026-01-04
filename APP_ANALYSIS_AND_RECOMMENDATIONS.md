@@ -144,7 +144,7 @@ Add floating action buttons or a quick action grid on home screen
   - "Why am I feeling tired today?"
 - **Context-Aware**: Knows user's goals, current intake, pantry items
 
-#### 7. **Meal Planning Calendar** ⭐️⭐️
+#### 7. **Meal Planning Calendar** ⭐️⭐️ Done ✅
 **Why it matters**: Helps users plan ahead
 ```
 Week View:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/nutrition_score_calculator.dart';
 
 // Model for a day's meal plan
 class DayMealPlan {
@@ -961,34 +962,20 @@ class _MealCalendarScreenState extends State<MealCalendarScreen> {
   }
 
   int _calculateNutritionScore(DayMealPlan dayPlan) {
-    // Calculate score based on how close to goals
-    final calorieScore =
-        ((1 -
-                    (dayPlan.totalCalories - dailyCalorieGoal).abs() /
-                        dailyCalorieGoal) *
-                25)
-            .clamp(0, 25);
-    final proteinScore =
-        ((1 -
-                    (dayPlan.totalProtein - dailyProteinGoal).abs() /
-                        dailyProteinGoal) *
-                25)
-            .clamp(0, 25);
-    final carbsScore =
-        ((1 - (dayPlan.totalCarbs - dailyCarbsGoal).abs() / dailyCarbsGoal) *
-                25)
-            .clamp(0, 25);
-    final fatsScore =
-        ((1 - (dayPlan.totalFats - dailyFatsGoal).abs() / dailyFatsGoal) * 25)
-            .clamp(0, 25);
-
-    return (calorieScore + proteinScore + carbsScore + fatsScore).round();
+    return NutritionScoreCalculator.calculateDailyScore(
+      actualCalories: dayPlan.totalCalories,
+      actualProtein: dayPlan.totalProtein,
+      actualCarbs: dayPlan.totalCarbs,
+      actualFats: dayPlan.totalFats,
+      goalCalories: dailyCalorieGoal,
+      goalProtein: dailyProteinGoal,
+      goalCarbs: dailyCarbsGoal,
+      goalFats: dailyFatsGoal,
+    );
   }
 
   Color _getScoreColor(int score) {
-    if (score >= 80) return const Color(0xFF4CAF50); // Green
-    if (score >= 60) return const Color(0xFFFFBE76); // Yellow
-    return const Color(0xFFFF6B6B); // Red
+    return NutritionScoreCalculator.getScoreColor(score);
   }
 
   Color _getMealTypeColor(String type) {
