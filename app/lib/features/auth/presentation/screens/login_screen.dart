@@ -66,13 +66,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 const SizedBox(height: 60),
                 // Header
                 Text(
-                  'Welcome Back',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  'Welcome to NutriAI',
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: -0.5,
+                  ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 12),
                 Text(
-                  'Sign in to continue your nutrition journey.',
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  'Your intelligent nutrition companion for a healthier, happier you',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontSize: 16,
+                    height: 1.5,
+                    color: Colors.black54,
+                  ),
                 ),
                 const SizedBox(height: 48),
 
@@ -93,22 +100,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   validator: (val) =>
                       val!.isEmpty ? 'Please enter password' : null,
                 ),
-
-                // Forgot Password
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 32),
 
                 // Button
                 PrimaryButton(
@@ -146,6 +138,21 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ),
                   ],
                 ),
+
+                const SizedBox(height: 40),
+
+                // Developer Credits
+                Center(
+                  child: Text(
+                    'Designed & Developed by Shahma Arshad',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black38,
+                      letterSpacing: 0.3,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
