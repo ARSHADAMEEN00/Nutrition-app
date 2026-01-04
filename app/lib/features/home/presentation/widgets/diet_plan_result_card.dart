@@ -91,9 +91,9 @@ class DietPlanResultCard extends StatelessWidget {
             const SizedBox(height: 16),
             Row(
               children: [
-                _buildQuickStat(Icons.restaurant, "7-Day Menu"),
+                _buildQuickStat(Icons.calendar_month, "Meal Calendar"),
                 const SizedBox(width: 16),
-                _buildQuickStat(Icons.insights, "Insights"),
+                _buildQuickStat(Icons.insights, "AI Insights"),
               ],
             ),
           ],
