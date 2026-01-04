@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../profile/presentation/screens/profile_screen.dart';
 import '../widgets/diet_plan_result_card.dart';
+import '../widgets/diet_progress_chart.dart';
 import '../widgets/nutrition_summary_chart.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -63,6 +64,11 @@ class HomeScreen extends StatelessWidget {
 
               // Diet Plan Result Card (shown after plan creation)
               const DietPlanResultCard(),
+
+              const SizedBox(height: 24),
+
+              // Progress Chart - Shows journey timeline
+              const DietProgressChart(),
 
               const SizedBox(height: 24),
 
